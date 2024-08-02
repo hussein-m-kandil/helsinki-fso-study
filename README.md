@@ -16,7 +16,7 @@ The repository is organized into directories corresponding to each part of the c
 > **NB**: Each part of this list will be transformed into a link to my solution once I have completed it.
 
 0. [Fundamentals of Web apps](./part0/)
-1. Introduction to React
+1. [Introduction to React](https://hussein-m-kandil.github.io/helsinki-fso-study/part1/)
 2. Communicating with server
 3. Programming a server with Node.js and Express
 4. Testing Express servers, user administration
