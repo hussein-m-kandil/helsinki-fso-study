@@ -3,6 +3,7 @@
 This repository contains [my solutions](https://hussein-m-kandil.github.io/helsinki-fso-study/) to the exercises required for each part of the [University of Helsinki's Full Stack Open course](https://fullstackopen.com/en/). The course covers modern web development techniques and practices, focusing on JavaScript, React, Node.js, and other related technologies.
 
 > **NB**: These were the required exercises when I was
+
         studying the course, _but they may change over time_.
 
 ## Structure
@@ -17,7 +18,7 @@ The repository is organized into directories corresponding to each part of the c
 
 0. [Fundamentals of Web apps](./part0/)
 1. [Introduction to React](https://hussein-m-kandil.github.io/helsinki-fso-study/part1/)
-2. Communicating with server
+2. [Communicating with server](https://hussein-m-kandil.github.io/helsinki-fso-study/part2/)
 3. Programming a server with Node.js and Express
 4. Testing Express servers, user administration
 5. Testing React apps
