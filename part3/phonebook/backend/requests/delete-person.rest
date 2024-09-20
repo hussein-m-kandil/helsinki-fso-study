@@ -1,0 +1,4 @@
+DELETE http://127.0.0.1:3001/api/persons/66ec457b4b205fe5fa87db4f
+
+###
+GET http://127.0.0.1:3001/api/persons/66ec457b4b205fe5fa87db4f

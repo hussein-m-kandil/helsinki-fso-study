@@ -1,0 +1,26 @@
+PUT http://127.0.0.1:3001/api/persons/66ec134dbd9e83d3ca6e536d
+Content-Type: application/json
+
+{
+  "number": "33-123453"
+}
+
+###
+PUT http://127.0.0.1:3001/api/persons/66ec134dbd9e83d3ca6e536d
+Content-Type: application/json
+
+{
+  "name": "Hussein Kandil"
+}
+
+###
+PUT http://127.0.0.1:3001/api/persons/66ec134dbd9e83d3ca6e536d
+Content-Type: application/json
+
+{
+  "name": "Hussein Kandil",
+  "number": "33-123453"
+}
+
+###
+GET http://127.0.0.1:3001/api/persons/66ec134dbd9e83d3ca6e536d

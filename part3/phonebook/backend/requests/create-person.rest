@@ -1,0 +1,26 @@
+POST http://127.0.0.1:3001/api/persons
+Content-Type: application/json
+
+{
+  "number": "12-651234"
+}
+
+###
+POST http://127.0.0.1:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Hussein"
+}
+
+###
+POST http://127.0.0.1:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Hussein",
+  "number": "123-4123"
+}
+
+###
+GET http://127.0.0.1:3001/api/persons
