@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "build:ui": "rm -rf public && cd ../frontend && npm run build && mv dist ../backend/public",
-    "vercel:dev": "npm run build:ui && npm run lint && [ -f .env.local ] && export $(cat .env.local) && export SERVERLESS_FUNCTION=1 && vercel dev --listen 3001",
+    "vercel:dev": "[ -f .env.local ] && export $(cat .env.local) && export SERVERLESS_FUNCTION=1 && vercel dev --listen 3001",
+    "vercel:full-dev": "npm run build:ui && npm run lint && npm run vercel:dev",
     "vercel:deploy": "npm run lint && npm run build:ui && vercel",
     "vercel:production": "npm run lint && vercel --prod"
   },
@@ -24,6 +25,7 @@
     "@eslint/js": "^9.10.0",
     "@stylistic/eslint-plugin-js": "^2.8.0",
     "eslint": "^9.10.0",
-    "globals": "^15.9.0"
+    "globals": "^15.9.0",
+    "vercel": "^41.2.0"
   }
 }

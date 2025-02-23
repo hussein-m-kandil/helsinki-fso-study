@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false);
 console.log('Connecting to', process.env.MONGODB_URI);
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 55000 })
   .then(() => {
     console.log('Connected to MongoDB');
   })
