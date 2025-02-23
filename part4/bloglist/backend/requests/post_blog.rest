@@ -1,0 +1,9 @@
+POST http://127.0.0.1:3001/api/blogs
+Content-Type: application/json
+
+{
+  "author": "Superman",
+  "title": "Amazing Blog",
+  "url": "https://www.google.com/",
+  "likes": 1
+}
