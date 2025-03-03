@@ -1,0 +1,55 @@
+.message {
+  background-color: #d7efd7;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  color: #050;
+  width: 35%;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+.error {
+  background-color: #efd7d7;
+  color: #500;
+}
+
+.bloglist {
+  padding: 0;
+  list-style: none;
+}
+
+.blog {
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+.blog + .blog {
+  margin-top: 1rem;
+}
+
+.blog button {
+  margin-left: 0.5rem;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+
+.btn-danger {
+  background-color: #d43b3b;
+  appearance: none;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-danger:hover {
+  background-color: #f44d4d;
+}
+
+.btn-danger:disabled,
+.btn-danger:active {
+  opacity: 0.5;
+}
