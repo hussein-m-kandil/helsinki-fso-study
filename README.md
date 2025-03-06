@@ -18,8 +18,8 @@ The repository is organized into directories corresponding to each part of the c
 1. [Introduction to React](https://hussein-m-kandil.github.io/helsinki-fso-study/part1/)
 2. [Communicating with server](https://hussein-m-kandil.github.io/helsinki-fso-study/part2/)
 3. [Programming a server with Node.js and Express](https://hussein-m-kandil.github.io/helsinki-fso-study/part3/)
-4. Testing Express servers, user administration
-5. Testing React apps
+4. [Testing Express servers, user administration](https://hussein-m-kandil.github.io/helsinki-fso-study/part4/)
+5. [Testing React apps](https://hussein-m-kandil.github.io/helsinki-fso-study/part5/)
 6. State management with Redux
 7. React router, custom hooks, styling app with CSS and webpack
 8. GraphQL
