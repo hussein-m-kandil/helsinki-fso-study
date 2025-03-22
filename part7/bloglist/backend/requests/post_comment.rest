@@ -1,0 +1,7 @@
+POST http://127.0.0.1:3001/api/blogs/67c5768a4f10ebcd9af802ff/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwibmFtZSI6IlN1cGVybWFuIiwiaWQiOiI2N2MzMGJjNDg2NDA1MjQ1NTZlNTM0MmYiLCJpYXQiOjE3NDMwNzQ5MDMsImV4cCI6MTc0MzA3ODUwM30.--kCCG0AH48uZOFuRUtEclxWc5o5OZFl2NcFJa2e8n4
+
+{
+  "comment": "very good blog, keep it up!"
+}

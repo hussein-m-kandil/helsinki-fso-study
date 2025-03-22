@@ -1,0 +1,40 @@
+{
+  "name": "helsinki-fso-p7-ultimate-hooks-fullstack",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hussein-m-kandil/helsinki-fso-study/tree/main#readme",
+  "bugs": {
+    "url": "https://github.com/hussein-m-kandil/helsinki-fso-study/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hussein-m-kandil/helsinki-fso-study.git#main"
+  },
+  "license": "ISC",
+  "author": "example_user",
+  "type": "commonjs",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node --env-file-if-exists=.env api/index.js",
+    "dev": "cross-env NODE_ENV=development node --env-file=.env --watch api/index.js",
+    "test": "cross-env NODE_ENV=test node --env-file=.env --test --test-concurrency=1",
+    "lint": "eslint .",
+    "build:ui": "cd ./frontend/ && npm run build",
+    "vercel:dev": "npm run lint && npm run build:ui && export $(cat .env.vercel) && vercel dev --listen 3001",
+    "vercel:deploy": "npm run lint && npm run build:ui && vercel",
+    "vercel:production": "npm run lint && npm run build:ui && vercel --prod"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^8.10.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin-js": "^4.0.1",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "vercel": "^41.3.1"
+  }
+}
