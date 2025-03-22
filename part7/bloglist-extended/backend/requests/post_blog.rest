@@ -1,0 +1,10 @@
+POST http://127.0.0.1:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVybWFuIiwibmFtZSI6IlN1cGVybWFuIiwiaWQiOiI2N2MzMGJjNDg2NDA1MjQ1NTZlNTM0MmYiLCJpYXQiOjE3NDA4MzYwMTQsImV4cCI6MTc0MDgzOTYxNH0.JUTuNPdi8NZAFlU2FH4--6TmrTkPXoHx-7KHadi5Joc
+
+{
+  "likes": 0,
+  "author": "Superman",
+  "title": "Amazing Blog",
+  "url": "https://www.google.com/"
+}

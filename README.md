@@ -21,7 +21,7 @@ The repository is organized into directories corresponding to each part of the c
 4. [Testing Express servers, user administration](https://hussein-m-kandil.github.io/helsinki-fso-study/part4/)
 5. [Testing React apps](https://hussein-m-kandil.github.io/helsinki-fso-study/part5/)
 6. [State management with Redux](https://hussein-m-kandil.github.io/helsinki-fso-study/part6/)
-7. React router, custom hooks, styling app with CSS and webpack
+7. [React router, custom hooks, styling app with CSS and webpack](https://hussein-m-kandil.github.io/helsinki-fso-study/part7/)
 8. GraphQL
 9. TypeScript
 10. React Native
