@@ -1,22 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const notificationSlice = createSlice({
-  name: 'notification',
-  initialState: { msg: '', isError: false },
-  reducers: { setData: (state, action) => action.payload },
-});
+export const { reducer: notificationReducer, actions: notificationActions } =
+  createSlice({
+    name: 'notification',
+    initialState: { msg: '', isError: false },
+    reducers: { set: (state, action) => action.payload },
+  });
 
 let timeoutId = null;
 
 export const showNotification = (msg, isError = false, timeoutMS = 3000) => {
   return (dispatch) => {
     clearTimeout(timeoutId);
-    dispatch(notificationSlice.actions.setData({ msg, isError }));
+    dispatch(notificationActions.set({ msg, isError }));
     timeoutId = timeoutId = setTimeout(
-      () => dispatch(notificationSlice.actions.setData(null)),
+      () => dispatch(notificationActions.set(null)),
       timeoutMS
     );
   };
 };
 
-export default notificationSlice.reducer;
+export default notificationReducer;

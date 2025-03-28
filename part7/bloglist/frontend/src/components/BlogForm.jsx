@@ -1,71 +1,71 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBlog } from '../reducers/blogsReducer.js';
-import PropTypes from 'prop-types';
+import { Form, Button, Input } from '@heroui/react';
+import { useNavigate } from 'react-router-dom';
 
-function BlogForm({ onBlogCreated = () => {} }) {
+function BlogForm() {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const hasEmptyField = () => !author || !title || !url;
 
-  const resetForm = () => {
-    onBlogCreated();
-    setAuthor('');
-    setTitle('');
-    setUrl('');
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createBlog({ author, title, url }, resetForm));
+    dispatch(createBlog({ author, title, url }, () => navigate('/')));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Create New Blog</h3>
+    <Form
+      onSubmit={handleSubmit}
+      className="w-full max-w-xs flex flex-col gap-4 mx-auto mt-8"
+    >
+      <h3 className="font-bold text-lg text-center w-full">Create New Blog</h3>
+      <Input
+        placeholder="Enter author name"
+        labelPlacement="outside"
+        autoComplete="on"
+        value={author}
+        label="Author"
+        type="text"
+        id="author"
+        isRequired
+        onChange={(e) => setAuthor(e.target.value)}
+      />
+      <Input
+        placeholder="Enter blog title"
+        labelPlacement="outside"
+        autoComplete="on"
+        value={title}
+        label="Title"
+        type="text"
+        id="title"
+        isRequired
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <Input
+        placeholder="Enter blog URL"
+        labelPlacement="outside"
+        autoComplete="on"
+        value={url}
+        label="Url"
+        type="text"
+        id="url"
+        isRequired
+        onChange={(e) => setUrl(e.target.value)}
+      />
       <p>
-        <label htmlFor="author">Author: </label>
-        <input
-          type="text"
-          id="author"
-          autoComplete="on"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-      </p>
-      <p>
-        <label htmlFor="title">Title: </label>
-        <input
-          type="text"
-          id="title"
-          autoComplete="on"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </p>
-      <p>
-        <label htmlFor="url">Url: </label>
-        <input
-          type="text"
-          id="url"
-          autoComplete="on"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        />
-      </p>
-      <p>
-        <button type="submit" disabled={hasEmptyField()}>
+        <Button type="submit" color="primary" isDisabled={hasEmptyField()}>
           Create
-        </button>
+        </Button>
       </p>
-    </form>
+    </Form>
   );
 }
-
-BlogForm.propTypes = { onBlogCreated: PropTypes.func };
 
 export default BlogForm;

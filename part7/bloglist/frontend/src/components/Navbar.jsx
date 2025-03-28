@@ -1,83 +1,117 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/authReducer';
-import { NavLink } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {
+  Link,
+  Button,
+  NavbarItem,
+  NavbarBrand,
+  Navbar as Nav,
+  NavbarContent,
+  NavbarMenuToggle,
+  DropdownTrigger,
+  NavbarMenuItem,
+  DropdownMenu,
+  DropdownItem,
+  NavbarMenu,
+  Dropdown,
+  Avatar,
+} from '@heroui/react';
 
-const StyledNavLink = ({ children, ...props }) => {
-  return (
-    <NavLink
-      {...props}
-      style={({ isActive }) => ({ fontWeight: isActive ? 700 : 400 })}
-    >
-      {children}
-    </NavLink>
+const PATHS = [
+  { name: 'Blogs', path: '/' },
+  { name: 'Users', path: '/users' },
+  { name: 'New Blog', path: '/blogs/new' },
+];
+
+const NavItems = ({ ItemElement, location }) => {
+  return PATHS.map(({ name, path }) =>
+    location.pathname === path ? (
+      <ItemElement key={path} isActive>
+        <Link aria-current="page" href={path} underline="always">
+          {name}
+        </Link>
+      </ItemElement>
+    ) : (
+      <ItemElement key={path}>
+        <Link href={path}>{name}</Link>
+      </ItemElement>
+    )
   );
 };
 
-StyledNavLink.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-};
-
 const Navbar = () => {
-  const navbarRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const location = useLocation();
 
   const user = useSelector(({ auth }) => auth);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const navbar = navbarRef.current;
-    navbar.parentElement.style.paddingTop = getComputedStyle(navbar).height;
-  }, []);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   return (
-    <div style={{ paddingTop: '2.2rem' }}>
-      <nav
-        ref={navbarRef}
-        style={{
-          boxShadow: '1px 0 2px #aaa',
-          backgroundColor: '#eee',
-          boxSizing: 'border-box',
-          padding: '0.5rem',
-          position: 'fixed',
-          right: 0,
-          left: 0,
-          top: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <h1 style={{ margin: 0 }}>Blog App</h1>
-        {user && (
-          <>
-            <ul
-              style={{
-                margin: 0,
-                padding: 0,
-                gap: '1rem',
-                display: 'flex',
-                listStyle: 'none',
-              }}
-            >
-              <li>
-                <StyledNavLink to="/">Blogs</StyledNavLink>
-              </li>
-              <li>
-                <StyledNavLink to="/users">Users</StyledNavLink>
-              </li>
-            </ul>
-            <div>
-              {user.name} is logged in &nbsp;
-              <button type="button" onClick={() => dispatch(logout())}>
-                Logout
-              </button>
-            </div>
-          </>
-        )}
-      </nav>
-    </div>
+    <Nav isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent justify="start">
+        <NavbarMenuToggle
+          className="sm:hidden"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        />
+        <NavbarBrand>
+          <h1 className="text-2xl font-bold">Blog App</h1>
+        </NavbarBrand>
+      </NavbarContent>
+      {user && (
+        <>
+          <NavbarContent justify="center" className="hidden sm:flex">
+            <NavItems ItemElement={NavbarItem} location={location} />
+          </NavbarContent>
+          <NavbarMenu justify="center" className="sm:flex text-center">
+            <NavItems ItemElement={NavbarMenuItem} location={location} />
+          </NavbarMenu>
+          <NavbarContent as="div" justify="end">
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  className="transition-transform text-lg"
+                  name={user.name[0]}
+                  color="primary"
+                  isBordered
+                  as="button"
+                  size="sm"
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Profile Actions" variant="flat">
+                <DropdownItem
+                  key="profile"
+                  className="h-14 gap-2"
+                  textValue={`Logged in as ${user.username}`}
+                >
+                  <p>
+                    Logged in as &nbsp;
+                    <span className="font-semibold">{user.username}</span>
+                  </p>
+                </DropdownItem>
+                <DropdownItem key="logout" color="danger" textValue={'Log out'}>
+                  <Button
+                    as={Link}
+                    color="primary"
+                    href="#"
+                    variant="flat"
+                    onPress={() => dispatch(logout())}
+                  >
+                    Log Out
+                  </Button>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </NavbarContent>
+        </>
+      )}
+    </Nav>
   );
 };
 

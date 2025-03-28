@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../reducers/authReducer.js';
 import { showNotification } from '../reducers/notificationReducer.js';
+import { Form, Input, Button } from '@heroui/react';
 import userService from '../services/user.js';
 
 function LoginForm() {
@@ -34,34 +35,50 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} aria-labelledby="login-form-label">
-      <h2 id="login-form-label">Log in to application</h2>
-      <p>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="on"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </p>
-      <p>
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          id="password"
-          autoComplete="on"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </p>
-      <p key={new Date().valueOf()}>
-        <button type="submit" name="submitter" disabled={hasEmptyFields()}>
+    <Form
+      className="w-full max-w-xs flex flex-col gap-4 mx-auto mt-8"
+      onSubmit={handleSubmit}
+      aria-labelledby="login-form-label"
+    >
+      <h2
+        id="login-form-label"
+        className="font-bold text-xl text-center w-full"
+      >
+        Log in to application
+      </h2>
+      <Input
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter your username"
+        labelPlacement="outside"
+        autoComplete="on"
+        value={username}
+        label="Username"
+        id="username"
+        type="text"
+        isRequired
+      />
+      <Input
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Enter your password"
+        labelPlacement="outside"
+        autoComplete="on"
+        value={password}
+        label="Password"
+        type="password"
+        id="password"
+        isRequired
+      />
+      <div className="flex gap-2" key={new Date().valueOf()}>
+        <Button
+          isDisabled={hasEmptyFields()}
+          name="submitter"
+          color="primary"
+          type="submit"
+        >
           Login
-        </button>
-      </p>
-    </form>
+        </Button>
+      </div>
+    </Form>
   );
 }
 
