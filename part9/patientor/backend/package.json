@@ -1,0 +1,54 @@
+{
+  "name": "helsinki-fso-p9-patientor-backend",
+  "version": "1.0.0",
+  "description": "An healthcare application",
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "express",
+    "rest",
+    "web"
+  ],
+  "homepage": "https://github.com/hussein-m-kandil/helsinki-fso-study#readme",
+  "bugs": {
+    "url": "https://github.com/hussein-m-kandil/helsinki-fso-study/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hussein-m-kandil/helsinki-fso-study.git"
+  },
+  "license": "ISC",
+  "author": "Hussein Kandil",
+  "type": "commonjs",
+  "main": "api/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "lint": "eslint .",
+    "format": "prettier ./src",
+    "start": "node --env-file=.env api/index.js",
+    "dev": "ts-node-dev ./src/index.ts",
+    "build:ui": "cd ../frontend/ && npm run build",
+    "prep": "npm run lint && npm run build:ui && npm run tsc",
+    "vercel:full:dev": "npm run prep && export $(cat .env.vercel) && vercel dev --listen 3001",
+    "vercel:dev": "export $(cat .env.vercel) && vercel dev --listen 3001",
+    "vercel:deploy": "npm run prep && vercel",
+    "vercel:production": "npm run prep && vercel --prod"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^5.0.1",
+    "eslint": "^9.24.0",
+    "prettier": "^3.5.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0",
+    "vercel": "^41.5.0"
+  }
+}

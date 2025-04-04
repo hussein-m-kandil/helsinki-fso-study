@@ -23,7 +23,7 @@ The repository is organized into directories corresponding to each part of the c
 6. [State management with Redux](https://hussein-m-kandil.github.io/helsinki-fso-study/part6/)
 7. [React router, custom hooks, styling app with CSS and webpack](https://hussein-m-kandil.github.io/helsinki-fso-study/part7/)
 8. GraphQL
-9. TypeScript
+9. [TypeScript](https://hussein-m-kandil.github.io/helsinki-fso-study/part9/)
 10. React Native
 11. CI/CD
 12. Containers

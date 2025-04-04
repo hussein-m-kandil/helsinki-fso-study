@@ -1,0 +1,13 @@
+h3 {
+  margin-bottom: 0.25rem;
+}
+
+p {
+  margin: 0;
+}
+
+.error {
+  color: #f00;
+  font-size: small;
+  margin: 0.5rem 0;
+}

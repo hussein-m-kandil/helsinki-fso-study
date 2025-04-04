@@ -1,0 +1,70 @@
+GET http://127.0.0.1:3001/api/ping
+
+###
+
+GET http://127.0.0.1:3001/api/diagnoses
+
+###
+
+GET http://127.0.0.1:3001/api/patients
+
+###
+
+GET http://127.0.0.1:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667
+
+###
+
+POST http://127.0.0.1:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Superman",
+    "dateOfBirth": "1970-01-01",
+    "ssn": "0000000-777z",
+    "gender": "male",
+    "occupation": "Krypton"
+}
+
+###
+
+POST http://127.0.0.1:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+    "date": "2025-04-09",
+    "specialist": "Hussein Kandil",
+    "description": "Molto bene",
+    "type": "Hospital",
+    "healthCheckRating": 0
+}
+###
+POST http://127.0.0.1:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+    "date": "2025-04-09",
+    "specialist": "Hussein Kandil",
+    "description": "Molto bene",
+    "type": "Hospital",
+    "discharge": {
+        "criteria": "Well done",
+        "date": "2025-04-09"
+    },
+    "diagnosisCodes": ["Z57.1", "Z74.3"]
+}
+###
+POST http://127.0.0.1:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+    "date": "2025-04-09",
+    "specialist": "Hussein Kandil",
+    "description": "Molto bene",
+    "type": "OccupationalHealthcare",
+    "employerName": "Linux Foundation",
+    "diagnosisCodes": ["M51.2"],
+    "sickLeave": {
+        "startDate": "2020-02-20",
+        "endDate": "2025-04-09"
+    }
+}
