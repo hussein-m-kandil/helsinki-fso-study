@@ -1,0 +1,45 @@
+{
+  "name": "fso-p9-1st-ts",
+  "version": "1.0.0",
+  "description": "First Steps with TypeScript - University of Helsinki - Full Stack Open TypeScript",
+  "keywords": [
+    "typescript",
+    "node",
+    "nodejs",
+    "fullstack",
+    "helsinki"
+  ],
+  "homepage": "https://github.com/hussein-m-kandil/helsinki-fso-study/tree/main#readme",
+  "bugs": {
+    "url": "https://github.com/hussein-m-kandil/helsinki-fso-study/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hussein-m-kandil/helsinki-fso-study.git#main"
+  },
+  "license": "ISC",
+  "author": "Hussein kandil",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "ts-node-dev index.ts",
+    "lint": "eslint .",
+    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateExercises": "ts-node exerciseCalculator.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^5.0.1",
+    "eslint": "^9.24.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
